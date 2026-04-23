@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Portofolio | Video</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #0b0b0b;
+    color: white;
+}
+
+/* ===== BACKGROUND ===== */
+.main-bg {
+    min-height: 100vh;
+    background: url("Palomino.jpg") center / cover no-repeat;
+}
+
+@media (min-width: 768px) {
+    .main-bg {
+        background-attachment: fixed;
+    }
+}
+
+/* ===== HERO ===== */
+.hero-header {
+    width: 100%;
+    height: 100vh;
+    background: url("Video 50s.jpg") center / cover no-repeat;
+}
+
+/* ===== NAVBAR ===== */
+nav {
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav a {
+    color: white;
+    margin: 0 20px;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    height: 2px;
+    background: white;
+    transition: 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* ===== CONTAINER GLASS ===== */
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 40px auto;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(20px);
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+
+/* ===== TEXT ===== */
+.content-text h2 {
+    margin-bottom: 10px;
+}
+
+.content-text p {
+    color: rgba(255,255,255,0.85);
+    line-height: 1.7;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.video-box {
+    margin-bottom: 40px;
+    text-align: center;
+
+    /* efek glass */
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(15px);
+
+    padding: 20px;
+    border-radius: 25px;
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+}
+
+.video-box iframe {
+    width: 100%;
+    height: 500px;
+
+    border-radius: 20px; /* lengkung TV */
+    border: none;
+
+    /* efek "layar TV" */
+    box-shadow: 
+        inset 0 0 30px rgba(0,0,0,0.6),
+        0 10px 30px rgba(0,0,0,0.7);
+}
+
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #aaa;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .video-box iframe {
+        height: 250px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="main-bg">
+
+    <!-- HERO -->
+    <div class="hero-header"></div>
+
+    <!-- NAV -->
+    <nav>
+        <a href="index.html">Beranda</a>
+        <a href="profil.html">Profil</a>
+        <a href="video.html">Video</a>
+        <a href="project.html">My Project</a>
+    </nav>
+
+    <!-- CONTENT -->
+    <div class="container">
+        
+        <!-- VIDEO -->
+        <div class="video-box">
+            <h2>Bukan Kurang Pintar, Tapi Kurang Siap: 
+                <p> Masalah Generasi Muda di Dunia Kerja</p></h2>
+
+    <a href="https://www.youtube.com/watch?v=ejcQGvuLjqw" target="_blank">
+        <img src="https://img.youtube.com/vi/ejcQGvuLjqw/hqdefault.jpg" 
+             style="width:100%; border-radius:20px;">
+    </a>
+</div>
+
+        
+        <div class="content-text">
+
+            <h2>Video Argumentasi</h2>
+            <p>
+Video ini menyajikan pembahasan mengenai kesenjangan antara keterampilan yang dimiliki generasi muda dengan tuntutan dunia kerja yang terus berkembang. Dalam video ini, SMPIT Al Haraki menghadirkan Internship Curriculum (IC) 2026 yang dapat menjadi langkah strategis dalam memberikan pengalaman nyata serta membantu siswa mempersiapkan diri menghadapi dunia kerja.</p>
+           
+            <h2>Topik yang Diangkat</h2>
+            <p>
+Video ini mengangkat topik dari isu sosial saat ini, yaitu kesenjangan antara keterampilan generasi muda dengan tuntutan dunia kerja, serta peran Internship Curriculum (IC) 2026 sebagai upaya menjembatani kesenjangan tersebut dengan peserta didik menjalani pembelajaran praktik langsung.</p>
+
+            <h2>Alasan Memilih Topik</h2>
+            <p>
+Topik ini dipilih karena masih tingginya angka pengangguran di kalangan generasi muda yang disebabkan oleh ketidaksesuaian antara keterampilan yang dimiliki dengan kebutuhan dunia kerja, sehingga perlu adanya solusi yang relevan dalam sistem pendidikan Indonesia, contohnya seperti program Internship Curriculum.            </p>
+
+            <h2>Pesan & Harapan</h2>
+            <p>
+Melalui pembahasan ini, diharapkan generasi muda lebih sadar akan pentingnya mengembangkan keterampilan praktis dan tidak hanya berfokus pada akademik. Selain itu, diharapkan program seperti Internship Curriculum dapat dimanfaatkan dengan baik bagi siswa sebagai bekal untuk menghadapi dunia kerja.            </p>
+
+        </div>
+</div>
+</div>
+
+    
+<footer>
+    <p>Ujian Praktik Terintegrasi | SMPIT Al Haraki | Azzalea Khaliqa Ozahin@2026</p>
+</footer>
+
+</body>
+</html>

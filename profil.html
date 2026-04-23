@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <link href="https://fonts.cdnfonts.com/css/symphony-script" rel="stylesheet">
+    
+<meta charset="UTF-8">
+<title>Portofolio | Profil</title>
+
+<style>
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* ===== BACKGROUND 1 (INTRO) ===== */
+/* Tetap 100vh karena fungsinya sebagai intro satu layar penuh */
+.hero {
+    height: 100vh;
+    background: url("Background 50s.jpg") center / cover no-repeat;
+}
+    
+/* ===== BACKGROUND 2 (NORMAL/DINAMIS) ===== */
+.background-2 {
+    /* Menggunakan min-height agar minimal 1 layar, tapi bisa memanjang jika konten banyak */
+min-height: 100vh; 
+    height: auto;     
+    /* background-size: cover memastikan gambar menutupi seluruh area tanpa mengulang (repeat) */
+    background: url("Holly3.jpg") center / cover no-repeat;
+    
+    /* Agar background tetap pada posisinya saat di-scroll (opsional, ganti ke 'scroll' jika ingin biasa saja) */
+    background-attachment: scroll;
+
+    display: flex;
+    flex-direction: column; /* Agar konten tersusun ke bawah */
+    justify-content: flex-start;
+    align-items: center;
+    padding-bottom: 50px; /* Tambahan padding agar konten tidak mepet ke bawah */
+}
+
+
+
+
+
+
+/* ===== BACKGROUND 3 (PROJECT / TV UI) ===== */
+.background-3 {
+    min-height: 100vh;
+    height: auto;
+    background: url("Holly Town.jpg") center / cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 105px 0 80px; /* ⬅️ TAMBAH ATASNYA */
+    position: relative;
+}
+
+    
+/* NAV */
+nav {
+    margin-top: 50px;
+}
+
+nav a {
+    color: white;
+    margin: 0 20px;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0%;
+    height: 2px;
+    background: white;
+    transition: 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* ===== OVERLAY SPOTIFY STYLE ===== */
+.fade-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 999;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.7) 0%,
+        rgba(0,0,0,0.2) 20%,
+        rgba(0,0,0,0) 40%,
+        rgba(0,0,0,0) 60%,
+        rgba(0,0,0,0.2) 80%,
+        rgba(0,0,0,0.7) 100%
+    );
+}
+
+
+
+.navbar-box {
+    width: 100%;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    display: flex;
+    justify-content: center;
+
+    padding: 15px 0;
+
+    /* 🔥 INI YANG BUAT STICKY */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+/* biar nav gak ada margin aneh lagi */
+nav {
+    margin-top: 0; /* INI PENTING */
+}
+
+
+    
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    color: #777;
+    background: white;
+}
+
+/* Style tambahan untuk simulasi konten agar terlihat fungsinya */
+.content-box {
+    color: white;
+    background: rgba(0,0,0,0.5);
+    padding: 20px;
+    margin-top: 50px;
+    width: 80%;
+    border-radius: 10px;
+}
+
+
+
+/* ===== KOTAK INFO AESTHETIC STYLE (DIUBAH KE TENGAH) ===== */
+.info-container {
+    display: flex;
+    justify-content: center; /* Membuat konten di dalamnya ke tengah horizontal */
+    align-items: center;    /* Memastikan kesejajaran */
+    width: 90%;            /* Pakai 100% agar centering sempurna terhadap layar */
+    max-width: 1000px;
+    margin: 40px auto;
+}
+
+.info-card {
+    background: rgba(255, 255, 255, 0.85); 
+    border-radius: 30px; 
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2); 
+    width: 70%;             /* Lebar disesuaikan agar manis di tengah */
+    max-width: 900px;       /* Batas lebar maksimal */
+    padding: 35px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    text-align: left;       /* Teks di dalam tetap rata kiri agar rapi */
+}
+
+.info-section {
+    margin-bottom: 15px;
+}
+
+.info-section h2 {
+    font-family: 'Playfair Display', 'Georgia', serif; 
+    font-size: 25px;
+    color: #333;
+    margin-bottom: 5px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    display: inline-block;
+}
+
+.info-section p {
+    font-family: 'Arial, sans-serif;
+    font-size: 16px;
+    color: #444;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.info-section:last-child {
+    margin-bottom: 0;
+}
+    
+
+
+/* ===== TV GLASS CONTAINER ===== */
+.tv-container {
+    width: 630px;   /* FIX ukuran biar stabil */
+    max-width: none;
+    padding: 25px;
+    border-radius: 30px;
+
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.4),
+        inset 0 0 40px rgba(255,255,255,0.05);
+
+    position: relative;
+}
+
+/* efek glow biar keliatan ngambang */
+.tv-container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 30px;
+    background: linear-gradient(
+        120deg,
+        rgba(255,255,255,0.2),
+        rgba(255,255,255,0.05)
+    );
+    opacity: 0.3;
+}
+
+/* ===== HEADER TV ===== */
+.tv-header {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+}
+
+/* ===== GRID FOTO ===== */
+.tv-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+
+/* kiri (utama) */
+.tv-main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+/* kanan list */
+.tv-side {
+    display: grid;
+    gap: 15px;
+}
+
+.tv-side img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+/* bawah (continue watching style) */
+.tv-bottom {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+}
+
+.tv-bottom img {
+    width: 145px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 12px;
+    flex-shrink: 0;
+}
+
+.tv-wrapper {
+    display: grid;
+    grid-template-columns: 2fr 1.3fr;
+    gap: 25px;
+
+    width: fit-content;
+    margin: auto;
+
+    align-items: center;
+    justify-content: center;
+}
+    
+
+/* ===== SPOTIFY PANEL ===== */
+.spotify-panel {
+    border-radius: 25px;
+    padding: 20px;
+        width: 370px;  /* biar kecil kayak di contoh */
+
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+
+    border: 1px solid rgba(255,255,255,0.2);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.4),
+        inset 0 0 30px rgba(255,255,255,0.05);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* album */
+.spotify-cover {
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+/* text */
+.spotify-title {
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.spotify-artist {
+    color: rgba(255,255,255,0.7);
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+/* progress bar */
+.spotify-bar {
+    width: 100%;
+    height: 4px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.spotify-progress {
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, #1DB954, #1ed760);
+}
+
+/* controls */
+.spotify-controls {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    color: white;
+}
+
+
+
+/* ===== SPOTIFY LIST ===== */
+.spotify-list {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.spotify-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 10px 12px;
+    border-radius: 12px;
+
+    background: rgba(255,255,255,0.06);
+    transition: 0.3s;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.spotify-item:hover {
+    background: rgba(255,255,255,0.15);
+    transform: scale(1.03);
+}
+
+.spotify-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.spotify-name {
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.spotify-singer {
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+}
+
+.spotify-time {
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+}
+
+
+
+/* ===== SPOTIFY CARD GRID ===== */
+.spotify-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+/* tiap lagu jadi kotak */
+.spotify-card {
+    border-radius: 15px;
+    overflow: hidden;
+
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    transition: 0.3s;
+}
+
+.spotify-card:hover {
+    transform: scale(1.03);
+}
+
+
+
+/* ===== JUDUL BACKGROUND 3 ===== */
+.creator-title {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    font-family: 'Playfair Display', 'Georgia', serif; /* samain feel elegan */
+    font-size: 42px;
+    color: white;
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    text-shadow: 0 5px 20px rgba(0,0,0,0.6);
+}
+
+
+/* ===== CREATOR BOX (VERSI NAV STYLE) ===== */
+.creator-box {
+    position: absolute;
+    top: 0; /* nempel atas section */
+    left: 0;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 10px 0;
+
+    background: rgba(0,0,0,0.6); /* sama kayak navbar */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    z-index: 5;
+}
+
+/* TEXT NYA */
+.creator-box h1 {
+    font-family: 'Symphony Script', cursive;
+    font-size: 60px;
+    color: #f8c8dc; /* Warna pink muda sesuai gambar */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Efek bayangan agar terbaca */
+
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    margin: 0;
+
+    text-shadow: 0 5px 20px rgba(0,0,0,0.6);
+}
+    
+</style>
+</head>
+
+<body>
+
+<div class="fade-overlay"></div>
+
+<section class="hero"></section>
+
+<section class="background-2">
+<div class="navbar-box">
+    <nav>
+        <a href="index.html">Beranda</a>
+        <a href="Cobain.html">Profil</a>
+        <a href="video.html">Video</a>
+        <a href="project.html">My Project</a>
+    </nav>
+</div>
+
+
+
+
+<div class="info-container">
+        <div class="info-card">
+            
+            <div class="info-section">
+                <h2>Profil Singkat</h2>
+                <p>Hai! Nama saya Azzalea Khaliqa Ozahin, seorang siswi berumur 15 tahun dari SMPIT Al Haraki. Saya sangat menyukai social science seperti seperti sejarah, sosiologi, dan politik. Selain itu, saya juga aktif mengikuti kompetisi bidang Biologi sebagai persiapan untuk sekolah menengah atas.</p>
+
+            </div>
+
+            <div class="info-section">
+                <h2>Tentang Diriku</h2>
+                <p>Saya adalah pribadi yang kreatif, imajinatif dan selalu ingin tahu hal baru. Saya sangat menikmati proses menciptakan sesuatu yang memiliki nilai estetika, terutama terkait hobi saya (belajar sejarah), termasuk design website ini. Saya berorientasi dalam bidang sosial dan pengetahuan alam dengan pengalaman termasuk berorganisasi dan ikut serta dalam beberapa kompetisi sains </p>
+            </div>
+
+            <div class="info-section">
+                <h2>Minat & Bakat</h2>
+                <p>Saya sangat tertarik dalam bidang intelektual, termasuk pengetahuan sosial (Sejarah, Politik, Sosiologi) dan alam (Biologi, Fisika, Kimia). Selain itu, saya juga menyukai olahraga, contohnya seperti sepak bola dan bersepeda.</p>
+            </div>
+
+            <div class="info-section">
+                <h2>Cita-cita & Harapan</h2>
+                <p> Saya termotivasi untuk memasuki jurusan Bioproses (Engineering & Biology) dan berharap dapat menjadi seorang Insinyur Bioproses di masa depan. Saya berharap dapat terus mengembangkan kemampuan diri agar dapat menjadi pribadi yang bermanfaat dan menginspirasi banyak orang.</p>
+            </div>
+
+                        <div class="info-section">
+                <h2>Kesan & Pesan Selama Kelas IX</h2>
+                <p> Selama kelas IX, saya mendapatkan banyak pengalaman dan pelajaran baru yang membantu saya berkembang, baik dalam belajar maupun keterampilan. Saya sangat menghargai dan mengingat seluruh kenangan selama di kelas IX.</p>
+            </div>
+
+        </div>
+        </div>
+
+
+</section>
+
+
+<section class="background-3">
+
+    <!-- 🔥 CREATOR BOX -->
+    <div class="creator-box">
+        <h1>La Dolce Vita</h1>
+    </div>
+    
+    <div class="tv-wrapper">
+
+        <!-- ===== TV BESAR ===== -->
+        <div class="tv-container">
+
+            <div class="tv-header">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+
+            <div class="tv-grid">
+                <div class="tv-main">
+                    <img src="FotoAzzel2.jpg">
+                </div>
+
+                <div class="tv-side">
+                    <img src="Azzel16.jpg">
+                    <img src="Azzel14.jpg">
+                    <img src="Azzel8.jpg">
+                </div>
+            </div>
+
+            <div class="tv-bottom">
+                <img src="Azzel5.jpg">
+                <img src="Azzel1.jpg">
+                <img src="Azzel9.jpg">
+                <img src="Azzel2.jpg">
+            </div>
+
+        </div>
+
+
+        <!-- ===== SPOTIFY PANEL (KANAN) ===== -->
+        <div class="spotify-panel">
+
+            <div>
+
+                <div class="spotify-title">Top Songs</div>
+                <div class="spotify-artist">Lana Del Rey</div>
+
+                <div class="spotify-bar">
+                    <div class="spotify-progress"></div>
+                </div>
+            </div>
+
+           <div class="spotify-list">
+
+    <div class="spotify-card">
+        <iframe style="border-radius:12px"
+        src="https://open.spotify.com/embed/track/1y3r6RXiJZNBV1EI0NggpS"
+        width="100%" height="80"
+        frameborder="0"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+        </iframe>
+    </div>
+
+    <div class="spotify-card">
+        <iframe style="border-radius:12px"
+        src="https://open.spotify.com/embed/track/1NZs6n6hl8UuMaX0UC0YTz"
+        width="100%" height="80"
+        frameborder="0"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+        </iframe>
+    </div>
+
+    <div class="spotify-card">
+        <iframe style="border-radius:12px"
+        src="https://open.spotify.com/embed/track/11MyiSGZSYSmhhqwGUTtAq"
+        width="100%" height="80"
+        frameborder="0"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+        </iframe>
+    </div>
+
+    <div class="spotify-card">
+        <iframe style="border-radius:12px"
+        src="https://open.spotify.com/embed/track/7bPWdJgx8vek7S5i5yAtvG"
+        width="100%" height="80"
+        frameborder="0"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+        </iframe>
+    </div>
+
+
+</div>
+</div> <!-- tutup spotify-list -->
+
+</div> <!-- tutup spotify-panel -->
+
+
+</section> <!-- tutup background-3 -->
+
+
+
+<footer>
+    <p>Ujian Praktik Terintegrasi | SMPIT Al Haraki | Azzalea Khaliqa Ozahin@2026</p>
+</footer>
+
+
+
+</body>
+</html>
